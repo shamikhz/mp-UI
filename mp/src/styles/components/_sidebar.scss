@@ -1,0 +1,129 @@
+.sidebar {
+  width: $sidebar-width;
+  height: 100vh;
+  background-color: #000000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+  
+  @media (max-width: 768px) {
+    width: $sidebar-width-mobile;
+  }
+  
+  @media (max-width: 480px) {
+    transform: translateX(-100%);
+    width: $sidebar-width;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    
+    &.open {
+      transform: translateX(0);
+    }
+  }
+  
+  .logo {
+    padding: 0 20px 20px;
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        
+        @media (max-width: 768px) {
+          width: 30px;
+          height: 30px;
+          margin-right: 0;
+        }
+        
+        @media (max-width: 480px) {
+          margin-right: 10px;
+        }
+      }
+      
+      .logo-text {
+        font-size: 24px;
+        font-weight: 700;
+        color: $text-color;
+        
+        @media (max-width: 768px) {
+          display: none;
+        }
+        
+        @media (max-width: 480px) {
+          display: inline;
+        }
+      }
+    }
+  }
+  
+  .menu {
+    list-style: none;
+    padding: 0 20px;
+    
+    li {
+      margin-bottom: 15px;
+      
+      a {
+        display: flex;
+        align-items: center;
+        color: $text-secondary;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: color 0.2s ease;
+        
+        &.active, &:hover {
+          color: $text-color;
+        }
+        
+        .icon {
+          margin-right: 15px;
+          font-size: 20px;
+          
+          @media (max-width: 768px) {
+            margin-right: 0;
+          }
+          
+          @media (max-width: 480px) {
+            margin-right: 15px;
+          }
+        }
+        
+        .menu-text {
+          @media (max-width: 768px) {
+            display: none;
+          }
+          
+          @media (max-width: 480px) {
+            display: inline;
+          }
+        }
+      }
+    }
+  }
+  
+  .divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 20px 20px;
+  }
+  
+  .close-sidebar {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 18px;
+    color: $text-secondary;
+    
+    @media (max-width: 480px) {
+      display: block;
+    }
+  }
+} 
